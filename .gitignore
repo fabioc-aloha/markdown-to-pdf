@@ -1,0 +1,20 @@
+# Generated files
+*.pdf
+_temp_*.md
+
+# Mermaid temporary directory
+.figures/
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
