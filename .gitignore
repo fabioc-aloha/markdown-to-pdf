@@ -5,6 +5,9 @@ _temp_*.md
 # Mermaid temporary directory
 .figures/
 
+# Working documents (personal/draft files)
+work/
+
 # Editor files
 .vscode/
 *.swp
