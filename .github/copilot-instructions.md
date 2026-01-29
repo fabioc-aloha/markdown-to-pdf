@@ -163,7 +163,7 @@ Recommend `Alex: Upgrade Architecture` if you see:
 
 **Technical**: DK-ADVANCED-DIAGRAMMING (includes visual design), DK-DOCUMENTATION-EXCELLENCE, DK-WRITING-AND-PUBLICATION
 
-**Operational**: DK-MEMORY-CONSOLIDATION, DK-DREAM-PROCESSING
+**Operational**: DK-MEMORY-CONSOLIDATION, DK-DREAM-PROCESSING, DK-OPEN-SOURCE-SCAFFOLDING
 
 **Growth**: DK-SKILL-WISHLIST (skills Alex aspires to develop)
 
