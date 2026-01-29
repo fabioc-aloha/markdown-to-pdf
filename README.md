@@ -2,52 +2,75 @@
   <img src="docs/banner.svg" alt="Markdown to PDF Converter" width="1600">
 </p>
 
-# Markdown to PDF Converter
+<p align="center">
+  <strong>Professional Markdown to PDF conversion with APA 7th edition formatting</strong><br>
+  Mermaid diagrams • LaTeX math • Citations • Table of Contents • And more
+</p>
 
-Professional Markdown to PDF conversion with APA 7th edition formatting, Mermaid diagram support, and extensive customization options.
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#usage">Usage</a> •
+  <a href="docs/USER_GUIDE.md">User Guide</a> •
+  <a href="docs/INSTALLATION.md">Installation</a>
+</p>
+
+---
 
 ## Features
 
-- **Cover Pages**: Use `[title]...[/title]` markers for professional title pages
-- **Table of Contents**: Multiple variants with `[toc]`, `[toc:figures]`, `[toc:tables]`, `[toc:all]`
-- **Mermaid Diagrams**: Automatic rendering with intelligent scaling
-- **Callout Boxes**: GitHub-style alerts (NOTE, TIP, WARNING, IMPORTANT, CAUTION)
-- **Page Breaks**: Manual control with `[pagebreak]` markers
-- **Figure & Table Captions**: Proper APA-formatted captions
-- **Draft Watermark**: Overlay "DRAFT" on all pages
-- **Confidential Footer**: Add confidential marking with footer rule
-- **Line Numbers**: Code review mode with numbered code blocks
-- **Two-Column Layout**: Newsletter-style formatting
-- **Custom Running Title**: Override header text
-- **Bibliography Support**: APA 7th edition citations with BibTeX
+| Feature | Description |
+|---------|-------------|
+| 📄 **Cover Pages** | Professional title pages with `[title]...[/title]` markers |
+| 📑 **Table of Contents** | Auto-generated with `[toc]`, `[toc:figures]`, `[toc:tables]`, `[toc:all]` |
+| 📊 **Mermaid Diagrams** | Automatic rendering with intelligent scaling |
+| 💡 **Callout Boxes** | GitHub-style alerts (NOTE, TIP, WARNING, IMPORTANT, CAUTION) |
+| ➗ **LaTeX Math** | Full equation support with `$...$` and `$$...$$` |
+| 📚 **Citations** | APA 7th edition bibliography with BibTeX |
+| 📐 **Page Breaks** | Manual control with `[pagebreak]` markers |
+| 🏷️ **Figure & Table Captions** | Proper APA-formatted captions |
+| 📝 **Draft Mode** | Overlay "DRAFT" watermark on all pages |
+| 🔒 **Confidential Footer** | Add confidential marking with footer rule |
+| 🔢 **Line Numbers** | Code review mode with numbered code blocks |
+| 📰 **Two-Column Layout** | Newsletter-style formatting |
+
+## Quick Start
+
+```powershell
+# Basic conversion
+.\convert-to-pdf.ps1 -File "document.md"
+
+# With draft watermark and auto-open
+.\convert-to-pdf.ps1 -File "document.md" -Draft -OpenAfterBuild
+```
 
 ## Requirements
 
-### Required
-- **Pandoc** - Document conversion engine ([Install](https://pandoc.org/installing.html))
-- **XeLaTeX** or **pdfLaTeX** - PDF generation (via [TeX Live](https://tug.org/texlive/) or [MiKTeX](https://miktex.org/))
-- **Times New Roman** font (included in Windows, available on macOS/Linux)
+| Component | Required | Purpose |
+|-----------|:--------:|---------|
+| [Pandoc](https://pandoc.org/installing.html) | ✅ | Document conversion engine |
+| [TeX Live](https://tug.org/texlive/) or [MiKTeX](https://miktex.org/) | ✅ | PDF generation (XeLaTeX/pdfLaTeX) |
+| Times New Roman font | ✅ | APA formatting (included in Windows) |
+| [Mermaid CLI](https://github.com/mermaid-js/mermaid-cli) | ⬜ | Diagram rendering |
 
-### Optional
-- **Mermaid CLI** - For diagram rendering ([Install](https://github.com/mermaid-js/mermaid-cli))
-  ```bash
-  npm install -g @mermaid-js/mermaid-cli
-  ```
+**Install Mermaid CLI (optional):**
 
-## Installation
+```bash
+npm install -g @mermaid-js/mermaid-cli
+```
 
-1. Clone or download this repository
-2. Ensure Pandoc and a LaTeX distribution are installed
-3. (Optional) Install Mermaid CLI for diagram support
+> 📖 See [Installation Guide](docs/INSTALLATION.md) for detailed setup instructions.
 
 ## Usage
 
 ### Basic Conversion
+
 ```powershell
 .\convert-to-pdf.ps1 -File "document.md"
 ```
 
-### With Options
+### Common Options
+
 ```powershell
 # Draft mode with confidential footer
 .\convert-to-pdf.ps1 -File "document.md" -Draft -Confidential
@@ -65,7 +88,7 @@ Professional Markdown to PDF conversion with APA 7th edition formatting, Mermaid
 ## Parameters
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| --------- | ---- | ------- | ----------- |
 | `-File` | String | (required) | Path to the Markdown file |
 | `-LineSpacing` | Double | 1.5 | Line spacing multiplier |
 | `-Draft` | Switch | false | Adds "DRAFT" watermark |
@@ -78,6 +101,7 @@ Professional Markdown to PDF conversion with APA 7th edition formatting, Mermaid
 ## Markdown Extensions
 
 ### Cover Page
+
 ```markdown
 [title]
 # Document Title
@@ -91,6 +115,7 @@ University Name
 ```
 
 ### Table of Contents
+
 ```markdown
 [toc]           <!-- Basic TOC -->
 [toc:figures]   <!-- TOC + List of Figures -->
@@ -99,6 +124,7 @@ University Name
 ```
 
 ### Page Breaks
+
 ```markdown
 Content before...
 
@@ -108,6 +134,7 @@ Content after...
 ```
 
 ### Callout Boxes
+
 ```markdown
 > [!NOTE]
 > This is an informational note.
@@ -126,6 +153,7 @@ Content after...
 ```
 
 ### Mermaid Diagrams
+
 ````markdown
 ```mermaid
 flowchart TD
@@ -136,20 +164,23 @@ flowchart TD
 ````
 
 ### Figure Captions
+
 ```markdown
 ![This is the figure caption](image.png)
 ```
 
 ### Table Captions
+
 ```markdown
 Table: This is the table caption
 
 | Column 1 | Column 2 |
-|----------|----------|
+| -------- | -------- |
 | Data     | Data     |
 ```
 
 ### Citations (requires bibliography.bib)
+
 ```markdown
 According to research [@example2024], this is true.
 @samplebook2023 provides comprehensive coverage.
@@ -157,15 +188,25 @@ According to research [@example2024], this is true.
 
 ## Project Structure
 
-```
+```text
 markdown-to-pdf/
 ├── convert-to-pdf.ps1      # Main conversion script
 ├── README.md               # This file
 ├── sample.md               # Example document
+├── docs/
+│   ├── INSTALLATION.md     # Setup guide
+│   ├── USER_GUIDE.md       # Detailed usage
+│   └── TROUBLESHOOTING.md  # Common issues
 └── references/
     ├── apa-7th-edition.csl # APA citation style
     └── bibliography.bib    # Your references
 ```
+
+## Documentation
+
+- 📖 [User Guide](docs/USER_GUIDE.md) - Comprehensive feature documentation
+- 🔧 [Installation](docs/INSTALLATION.md) - Detailed setup instructions
+- 🐛 [Troubleshooting](docs/TROUBLESHOOTING.md) - Common issues and solutions
 
 ## Examples
 
@@ -178,6 +219,10 @@ See [sample.md](sample.md) for a complete example demonstrating all features.
 3. **Two-column tables look wrong?** Tables render as text in two-column mode due to LaTeX limitations
 4. **Large diagrams?** The converter automatically scales diagrams to fit the page
 
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 ## License
 
-MIT License - Feel free to use and modify for your projects.
+MIT License - See [LICENSE](LICENSE) for details.

@@ -1,159 +1,229 @@
-[title]
-# Sample Document
+# Feature Demonstration Guide
 
-**Author**: Your Name
-**Organization**: Your Organization
-January 2025
+**Markdown to PDF Converter**
 
-*A demonstration of all converter features*
-[/title]
+---
 
-[toc:all]
+**Author**: Documentation Team
+**Date**: January 2025
+
+*A comprehensive showcase of all converter capabilities*
 
 ## Introduction
 
-This sample document demonstrates all the features available in the Markdown to PDF converter. Each section below showcases a different capability.
-
-## Cover Pages and Metadata
-
-The document you're reading started with a `[title]...[/title]` block that generated the cover page. The converter automatically extracts the title, author, and date for PDF metadata.
-
-## Table of Contents
-
-The `[toc:all]` marker above generated a table of contents along with lists of figures and tables. Other options include:
-
-- `[toc]` - Basic table of contents only
-- `[toc:figures]` - TOC plus list of figures
-- `[toc:tables]` - TOC plus list of tables
-
-## Callout Boxes
-
-The converter supports five types of callout boxes using GitHub-style syntax:
-
-> [!NOTE]
-> This is an informational note. Use it to provide additional context or explanations that readers might find helpful.
+Welcome to the feature demonstration guide for the Markdown to PDF converter. This document showcases every capability available, serving as both documentation and a test file for validating converter functionality.
 
 > [!TIP]
-> This is a helpful tip. Perfect for sharing best practices or shortcuts that can improve the reader's experience.
+> Convert this file with different options to see how each feature renders:
+> ```powershell
+> .\convert-to-pdf.ps1 -File "sample.md" -OpenAfterBuild
+> ```
 
-> [!WARNING]
-> This is a warning. Use it to alert readers about potential issues or things they should be careful about.
+## Document Structure
 
-> [!IMPORTANT]
-> This is important information. Use it for key points that readers must understand.
+### Cover Pages
 
-> [!CAUTION]
-> This requires caution. Use it for critical warnings about actions that could cause problems.
+The document you're reading began with a `[title]...[/title]` block that generated the professional cover page. The converter automatically extracts metadata for the PDF properties.
 
-## Mermaid Diagrams
-
-The converter automatically renders Mermaid diagrams with intelligent scaling:
-
-```mermaid
-flowchart TD
-    A[Markdown File] --> B{Has Mermaid?}
-    B -->|Yes| C[Render Diagrams]
-    B -->|No| D[Skip Rendering]
-    C --> E[Convert to PDF]
-    D --> E
-    E --> F[Output PDF]
+```markdown
+[title]
+# Document Title
+**Author**: Name
+January 2025
+[/title]
 ```
 
-Here's a more complex sequence diagram:
+### Table of Contents
+
+The `[toc:all]` marker generates a complete table of contents with lists of figures and tables. Available variants:
+
+| Marker | Output |
+| ------ | ------ |
+| `[toc]` | Table of contents only |
+| `[toc:figures]` | TOC + list of figures |
+| `[toc:tables]` | TOC + list of tables |
+| `[toc:all]` | TOC + figures + tables |
+
+## Visual Elements
+
+### Callout Boxes
+
+Five callout types provide visual emphasis for different content categories:
+
+> [!NOTE]
+> **Informational notes** provide additional context or background information that supplements the main content.
+
+> [!TIP]
+> **Tips** share best practices, shortcuts, or recommendations that improve the reader's experience.
+
+> [!WARNING]
+> **Warnings** alert readers to potential issues or situations requiring attention.
+
+> [!IMPORTANT]
+> **Important notices** highlight critical information that readers must understand before proceeding.
+
+> [!CAUTION]
+> **Caution notices** warn about actions that could cause significant problems or data loss.
+
+### Mermaid Diagrams
+
+The converter renders Mermaid diagrams with automatic scaling to fit the page:
+
+```mermaid
+flowchart LR
+    subgraph Input
+        A[📄 Markdown]
+    end
+    subgraph Processing
+        B{Mermaid?}
+        C[🎨 Render]
+        D[⚙️ Pandoc]
+    end
+    subgraph Output
+        E[📕 PDF]
+    end
+
+    A --> B
+    B -->|Yes| C --> D
+    B -->|No| D
+    D --> E
+```
+
+**Sequence diagrams** illustrate process flows:
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant Script
-    participant Pandoc
-    participant LaTeX
+    participant U as 👤 User
+    participant S as ⚙️ Script
+    participant P as 📝 Pandoc
+    participant L as 🔧 LaTeX
 
-    User->>Script: Run convert-to-pdf.ps1
-    Script->>Script: Parse markdown extensions
-    Script->>Script: Process Mermaid diagrams
-    Script->>Pandoc: Convert markdown
-    Pandoc->>LaTeX: Generate PDF
-    LaTeX-->>User: Final PDF document
+    U->>S: convert-to-pdf.ps1
+    activate S
+    S->>S: Parse extensions
+    S->>S: Render Mermaid
+    S->>P: Process markdown
+    activate P
+    P->>L: Generate PDF
+    activate L
+    L-->>U: 📕 Final document
+    deactivate L
+    deactivate P
+    deactivate S
 ```
-
-## Tables
-
-Tables are formatted with proper styling including smaller font size and single spacing:
-
-Table: Sample Data Table
-
-| Feature | Status | Notes |
-|---------|--------|-------|
-| Cover Pages | ✓ | Uses [title] markers |
-| TOC | ✓ | Multiple variants |
-| Diagrams | ✓ | Mermaid CLI required |
-| Callouts | ✓ | 5 types supported |
-| Citations | ✓ | APA 7th edition |
-
-## Code Blocks
-
-Code blocks are styled with a subtle background. When using the `-LineNumbers` flag, line numbers appear:
-
-```python
-def convert_document(input_file, output_file):
-    """Convert a markdown file to PDF."""
-    content = read_file(input_file)
-    processed = process_extensions(content)
-    generate_pdf(processed, output_file)
-    return True
-```
-
-Inline code like `variable_name` gets a highlighted background.
-
-## Page Breaks
-
-Use the `[pagebreak]` marker to force a new page.
 
 [pagebreak]
 
-## Citations and Bibliography
+## Data Presentation
 
-When a `references/bibliography.bib` file is present, you can use citations:
+### Tables
 
-- Parenthetical: According to recent research [@example2024], this approach works well.
-- Narrative: @samplebook2023 provides comprehensive coverage of this topic.
-- Multiple: Several studies support this [@example2024; @conference2024].
+Tables render with professional styling, including smaller font size and proper alignment:
 
-## Figures
+Table: Converter Feature Matrix
 
-Images with captions are automatically formatted as proper figures:
+| Feature | Status | Requirement | Notes |
+| ------- | :----: | ----------- | ----- |
+| Cover Pages | ✅ | Built-in | Uses `[title]` markers |
+| Table of Contents | ✅ | Built-in | Four variants available |
+| Mermaid Diagrams | ✅ | Optional | Requires Mermaid CLI |
+| Callout Boxes | ✅ | Built-in | Five types supported |
+| Citations | ✅ | Optional | Requires bibliography.bib |
+| LaTeX Math | ✅ | Built-in | Full equation support |
+| Page Breaks | ✅ | Built-in | Manual page control |
+| Draft Mode | ✅ | Built-in | Watermark overlay |
 
-![This would be a figure caption if an image existed](placeholder.png){ width=50% }
+### Code Blocks
 
-## Command Line Options
+Code blocks feature syntax highlighting and optional line numbers (use `-LineNumbers` flag):
 
-This document can be converted with various options:
+```python
+def convert_document(input_path: str, output_path: str) -> bool:
+    """
+    Convert a Markdown file to PDF with full feature support.
+
+    Args:
+        input_path: Path to the source Markdown file
+        output_path: Path for the generated PDF
+
+    Returns:
+        True if conversion succeeded, False otherwise
+    """
+    content = read_markdown(input_path)
+    processed = apply_extensions(content)
+    return generate_pdf(processed, output_path)
+```
+
+Inline code like `variable_name` or `function()` renders with a highlighted background.
+
+### Mathematical Equations
+
+LaTeX math expressions render beautifully:
+
+The quadratic formula: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+
+Block equations for complex expressions:
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+$$
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+$$
+
+## Academic Features
+
+### Citations
+
+With a `references/bibliography.bib` file, citations follow APA 7th edition:
+
+- **Parenthetical**: According to recent research [@example2024], this approach is effective.
+- **Narrative**: @samplebook2023 provides comprehensive coverage of the methodology.
+- **Multiple sources**: Several studies support these findings [@example2024; @conference2024].
+
+### Figures
+
+Images with alt text automatically become captioned figures:
+
+```markdown
+![Figure caption text here](image.png){ width=50% }
+```
+
+## Command Reference
+
+### Basic Usage
 
 ```powershell
-# Basic conversion
-.\convert-to-pdf.ps1 -File "sample.md"
+.\convert-to-pdf.ps1 -File "document.md"
+```
 
-# Draft mode
-.\convert-to-pdf.ps1 -File "sample.md" -Draft
+### Advanced Options
 
-# Confidential with custom spacing
-.\convert-to-pdf.ps1 -File "sample.md" -Confidential -LineSpacing 1.15
+```powershell
+# Academic paper with citations
+.\convert-to-pdf.ps1 -File "paper.md" -LineSpacing 2.0
 
-# Full options
-.\convert-to-pdf.ps1 -File "sample.md" -Draft -Confidential -LineNumbers -RunningTitle "Sample Doc" -OpenAfterBuild
+# Technical documentation
+.\convert-to-pdf.ps1 -File "manual.md" -LineNumbers -TwoColumn
+
+# Draft for review
+.\convert-to-pdf.ps1 -File "draft.md" -Draft -Confidential -OpenAfterBuild
+
+# Custom header
+.\convert-to-pdf.ps1 -File "report.md" -RunningTitle "Q4 Report" -OpenAfterBuild
 ```
 
 ## Conclusion
 
-This converter provides a comprehensive solution for creating professional PDF documents from Markdown source files. The combination of:
+This converter delivers professional-quality PDF output from Markdown source files, combining:
 
-- APA 7th edition formatting
-- Automatic diagram rendering
-- Multiple callout types
-- Flexible TOC options
-- Bibliography support
+- **Academic standards** — APA 7th edition formatting with proper citations
+- **Visual richness** — Mermaid diagrams, callout boxes, and LaTeX math
+- **Flexibility** — Multiple layout options and customization parameters
+- **Ease of use** — Simple command-line interface with sensible defaults
 
-...makes it suitable for academic papers, technical documentation, and professional reports.
+Whether creating academic papers, technical documentation, or professional reports, this tool streamlines the journey from Markdown to polished PDF.
 
 ---
 
