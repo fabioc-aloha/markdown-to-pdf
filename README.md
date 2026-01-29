@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/banner.svg" alt="Markdown to PDF Converter" width="1600">
+</p>
+
 # Markdown to PDF Converter
 
 Professional Markdown to PDF conversion with APA 7th edition formatting, Mermaid diagram support, and extensive customization options.
